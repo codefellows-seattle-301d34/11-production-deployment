@@ -16,7 +16,7 @@ Next, make sure you have a local database that you want to send to heroku. It mu
 
 - After psql is added to your path, open your terminal and type psql. If you get prompted for a password then psql is working and we can move forward.
 - Navigate to the project repo. This is where we are going to add our dump file. Note that you don't need to be in a specific repo, but the dump file will be added to where your PWD is currently at. Adding it to your project repo can be a good way to save it as well.
-- Type in the command `PGPASSWORD=1234 pg_dump -U postgres -F c -c -O book_app  > out.sql`, replacing values as needed.
+- Type in the command `PGPASSWORD=1234 pg_dump -U postgres -F c -c -O books_app  > out.sql`, replacing values as needed.
   - `PGPASSWORD` is the password for the user who owns the DB. If there's no password, then leave this off althogether.
   - `-U` is a flag for `--username`. By default it's `postgres` but if for some reason your DB owner is different, use that user after this flag instead of `postgres`.
   - `-F c` is a shortcut for `--format=c`. `c` Stands for custom. We are making a custom formatted file here.
