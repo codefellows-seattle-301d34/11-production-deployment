@@ -27,7 +27,6 @@ Complete [today's Kata](https://www.codewars.com/kata/sum-of-odd-cubed-numbers) 
 
 ```
 export PORT=3000
-export CLIENT_URL=http://localhost:8080
 Mac:     export DATABASE_URL=postgres://localhost:5432/books_app
 Windows: export DATABASE_URL=postgres://USER:PASSWORD@localhost:5432/books_app
 ```
@@ -55,8 +54,9 @@ book_app_week_3
 │   │   ├── models
 │   │   │   └── book.js
 │   │   └── views
-│   │       ├── book-view.js
-│   │       └── error-view.js
+│   │   │   ├── book-view.js
+│   │   │   └── error-view.js
+│   │   └── index.js
 │   └── styles
 │       ├── base.css
 │       ├── fonts
@@ -98,7 +98,6 @@ This week, you and your partner(s) will implement a basic full stack application
   - You do not need to fill in the content of any other files yet.
 - Add, commit, and push your code to GitHub. This should provide you with a basic deployment for your client application that you will build upon throughout the rest of the week.
 - In GitHub, go to the `book-list-client` repo and go to Settings. Scroll down and set your master branch as the source for your deployed frontend. It may take a few minutes for the URL to be generated. If you are able to navigate to this URL and view the code from your index.html file, you have correctly deployed your frontend.
-  - *Note: Your deployed link will be used later as your `CLIENT_URL`*
 - From this point on, work on semantically-named non-master branches. Once your app is functioning correctly on your branch, PR to master and confirm functionality on your deployed site. Your deployed site **should not** contain any broken functionality.
 
 *3. As a developer, I want to deploy the backend API to a hosting service so that other developers may build their own frontend interfaces for this application.*
@@ -130,7 +129,6 @@ This week, you and your partner(s) will implement a basic full stack application
 *5. As a developer, I want the client application to have access to a deployed PostgreSQL database so the user data persists across application sessions.*
 
 - In Heroku, click on your booklist app and go to the Resources tab. Search for "Postgres" and provision the free version to your app. This will automatically populate the `DATABASE_URL` config var in the Settings tab. Navigate to the Settings tab to verify.
-  - While you are here, add the `CLIENT_URL` as a config var on Heroku.
 - Migrate your local database to Heroku, using the following format for your command: `heroku pg:push books_app DATABASE_URL --app <partner 1 initials>-<partner 2 initials>-booklist`
   - **If you are testing locally,** connect your client using your local database.
   - **If you are testing the deployed backend,** connect your client to the DB using the defined `DATABSE_URL` environment variable.
@@ -149,6 +147,10 @@ This week, you and your partner(s) will implement a basic full stack application
 
 *7. As a user, I want my books to be rendered dynamically so that I can view all of the books in my list.*
 
+- In `index.js`, create a property called `isProduction` which will evaluate your environment based on the URL in the browser. Use this property to set your `app.ENVIRONMENT.apiUrl`.
+  - Create a `.showOnly` method to reveal the containers of your single-page app.
+  - Create a `.render` method to compile your Handlebars template.
+  - Envlose your code in an IIFE.
 - Define a constructor function called `Book` which takes an object literal as an argument.
   - Iterate over the argument's object keys to assign key/value pairs for creating a Book instance.
   - Enclose your code in an IFFE.
