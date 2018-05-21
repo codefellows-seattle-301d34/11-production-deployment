@@ -18,7 +18,7 @@ Complete [today's Kata](https://www.codewars.com/kata/sum-of-odd-cubed-numbers) 
 - [Heroku Node Deployment Tutorial](https://devcenter.heroku.com/categories/nodejs)
 - [GH-Pages Deployment](https://pages.github.com/)
 - [Express API Docs](http://expressjs.com/en/4x/api.html)
-- [Book List Wireframes](./wireframes)
+- [Book List Wireframes](./class_11_wireframe.png)
 
 ## Configuration
 
